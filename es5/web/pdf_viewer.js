@@ -6215,6 +6215,7 @@ var PDFPageView = /*#__PURE__*/function () {
       var promise = pdfPage.getOperatorList().then(function (opList) {
         ensureNotCancelled();
         var svgGfx = new _pdfjsLib.SVGGraphics(pdfPage.commonObjs, pdfPage.objs);
+        svgGfx.embedFonts = true;
         return svgGfx.getSVG(opList, actualSizeViewport).then(function (svg) {
           ensureNotCancelled();
           _this2.svg = svg;
