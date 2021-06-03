@@ -4971,7 +4971,9 @@ class PDFPageView {
     const promise = pdfPage.getOperatorList().then(opList => {
       ensureNotCancelled();
       const svgGfx = new _pdfjsLib.SVGGraphics(pdfPage.commonObjs, pdfPage.objs, _viewer_compatibility.viewerCompatibilityParams.disableCreateObjectURL);
+      console.log("Patched");
       svgGfx.embedFonts = true;
+      svgGfx.forceDataSchema = true;
       return svgGfx.getSVG(opList, actualSizeViewport).then(svg => {
         ensureNotCancelled();
         this.svg = svg;
